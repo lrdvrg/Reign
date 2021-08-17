@@ -1,0 +1,101 @@
+.container {
+  margin: 0px 150px;
+}
+
+.menu {
+  margin: 70px auto;
+  max-width: fit-content;
+}
+
+.button {
+  width: 98px;
+  height: 31px;
+  border-radius: 2px;
+  color: #606060;
+  background: none;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  border: solid 1px #d6d6d6;
+}
+
+.active {
+  border: solid 1px #1797ff;
+  color: #1797ff;
+}
+
+.side-border-right {
+  border-right: 0;
+}
+
+.side-border-left {
+  border-left: 0;
+}
+
+
+.wrap {
+  right: 0;
+  top: 40%;
+  width: 350px;
+  left: 0;
+  margin: 0 auto;
+}
+
+.select {
+  font-family: Roboto;
+  position: relative;
+  width: 240px;
+}
+
+.select-text {
+  position: relative;
+  font-family: inherit;
+  background-color: transparent;
+  width: 240px;
+  padding: 7px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: solid 1px #2e2e2e;
+}
+
+.select-text:focus {
+  outline: none;
+}
+
+.select .select-text {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.select:after {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  content: "";
+  border-left: 6px solid transparent;
+  border-right: 6px solid #ff000000;
+  border-top: 6px solid rgb(0 0 0);
+  pointer-events: none;
+}
+
+.select-label {
+  background: white;
+  position: absolute;
+  pointer-events: none;
+  padding: 0 5px;
+  left: 10px;
+  top: 7px;
+  transition: 0.2s ease all;
+
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 1.57;
+  color: #343434;
+}
+
+.select-text:focus~.select-label,
+.select-text:valid~.select-label {
+  top: -8px;
+  transition: 0.2s ease all;
+  font-size: 12px;
+}

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="menu">
+    <div class="button-group">
+      <button [ngClass]="{'active': isAllSelected, 'side-border-right': isAllSelected}" (click)="isAllSelected = !isAllSelected" class="button">All</button>
+      <button [ngClass]="{'active': !isAllSelected, 'side-border-left': !isAllSelected}" (click)="isAllSelected = !isAllSelected" class="button">My faves</button>
+    </div>
+  </div>
+  <div class="select">
+    <select class="select-text" [(ngModel)]="selection" required>
+      <option style="height: 50px;" value="" disabled selected></option>
+      <option *ngFor="let options of selectionOptions" [value]="options.value">{{options.viewValue}}</option>
+    </select>
+    <label class="select-label">Select your news</label>
+  </div>
+</div>
