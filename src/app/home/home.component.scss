@@ -99,3 +99,55 @@
   transition: 0.2s ease all;
   font-size: 12px;
 }
+
+
+.cards {
+  margin-top: 38px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 40px;
+  grid-auto-flow: row;
+}
+
+.card {
+  border-radius: 6px;
+  border: solid 1px #979797;
+  background-color: #fff;
+  display: flex;
+}
+
+.card-content {
+  padding: 0px 26px;
+}
+
+.card-head {
+  font-family: Roboto;
+  font-size: 11px;
+  color: #767676;
+  padding-top: 16px;
+}
+
+.card-head-icon {
+  vertical-align: text-bottom;
+  bottom: -1px;
+  padding-right: 8px;
+  position: relative;
+}
+
+.card-body {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  letter-spacing: 0.25px;
+  color: #6b6b6b;
+  padding: 7px 0px 14px;
+}
+
+.card-fav {
+  background-color: rgb(96, 96, 96, 0.06);
+  width: 68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
