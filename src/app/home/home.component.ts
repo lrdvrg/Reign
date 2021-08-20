@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
     {value: 'vuejs', viewValue: 'Vuejs'}
   ];
 
+  data: any [];
+
   constructor(
     private homeService: HomeService
   ) { }
@@ -24,10 +26,17 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  selectionChange(selection) {
+  selectionChange(selection: string) {
     this.homeService.getNews(selection, 1)
     .subscribe(res => {
       console.log('RESPONSE', res);
+      if (res && res.hits) {
+        this.data = res.hits;
+      }
     });
+  }
+
+  navigateToUrl(url: string) {
+    window.open(url);
   }
 }

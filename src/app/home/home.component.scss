@@ -114,10 +114,12 @@
   border: solid 1px #979797;
   background-color: #fff;
   display: flex;
+  justify-content: space-between;
 }
 
 .card-content {
   padding: 0px 26px;
+  cursor: pointer;
 }
 
 .card-head {
