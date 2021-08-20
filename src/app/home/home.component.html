@@ -5,7 +5,7 @@
       <button [ngClass]="{'active': !isAllSelected, 'side-border-left': !isAllSelected}" (click)="isAllSelected = !isAllSelected" class="button">My faves</button>
     </div>
   </div>
-  <div class="select">
+  <div [ngClass]="{'hide': !isAllSelected}" class="select">
     <select class="select-text" [(ngModel)]="selection" (change)="selectionChange(selection)" required>
       <option style="height: 50px;" value="" disabled selected></option>
       <option *ngFor="let options of selectionOptions" [value]="options.value">{{options.viewValue}}</option>

@@ -45,6 +45,7 @@
   font-family: Roboto;
   position: relative;
   width: 240px;
+  transition: 0.5s ease all;
 }
 
 .select-text {
@@ -195,4 +196,10 @@
 .paginator a:hover:not(.active) {
   background-color: #ddd;
   border-radius: 5px;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
 }
