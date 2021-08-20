@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="select">
-    <select class="select-text" [(ngModel)]="selection" required>
+    <select class="select-text" [(ngModel)]="selection" (change)="selectionChange(selection)" required>
       <option style="height: 50px;" value="" disabled selected></option>
       <option *ngFor="let options of selectionOptions" [value]="options.value">{{options.viewValue}}</option>
     </select>

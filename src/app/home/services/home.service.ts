@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Subscriber } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +13,7 @@ export class HomeService {
     private http: HttpClient
   ) { }
 
-  getNews(type: string, page: number): Subscriber<any> {
+  getNews(type: string, page: number): Observable<any> {
     return this.http.get(`${this.baseUrl}?query=${type}&page=${page}`);
   }
 

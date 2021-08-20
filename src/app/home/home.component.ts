@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from './services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,19 @@ export class HomeComponent implements OnInit {
     {value: 'angular', viewValue: 'Angular'},
     {value: 'reactjs', viewValue: 'React'},
     {value: 'vuejs', viewValue: 'Vuejs'}
-  ]
+  ];
 
-  constructor() { }
+  constructor(
+    private homeService: HomeService
+  ) { }
 
   ngOnInit() {
   }
 
+  selectionChange(selection) {
+    this.homeService.getNews(selection, 1)
+    .subscribe(res => {
+      console.log('RESPONSE', res);
+    });
+  }
 }
