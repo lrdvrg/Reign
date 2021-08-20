@@ -6,18 +6,22 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgPipesModule } from 'ngx-pipes';
+import { TimeAgoPipe } from './home/pipes/time-ago.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-      HomeComponent
+      HomeComponent,
+      TimeAgoPipe
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgPipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
