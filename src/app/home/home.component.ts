@@ -24,14 +24,24 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if (localStorage.getItem('selection')) {
+      const lsSelection = localStorage.getItem('selection');
+      this.getData(lsSelection);
+      this.selection = lsSelection;
+    }
   }
 
   selectionChange(selection: string) {
+    localStorage.setItem('selection', selection);
+    this.getData(selection);
+  }
+
+  getData(selection: string) {
     this.homeService.getNews(selection, 1)
     .subscribe(res => {
-      console.log('RESPONSE', res);
       if (res && res.hits) {
         this.data = res.hits;
+        this.data = this.data.filter(item => (item.story_title && item.author && item.story_url && item.created_at));
       }
     });
   }
