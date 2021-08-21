@@ -207,6 +207,23 @@
   transition: visibility 0s linear 300ms, opacity 300ms;
 }
 
+.go-up-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  visibility: visible;
+  font-size: 31px;
+  width: 43px;
+  height: 43px;
+  border-radius: 23px;
+  color: #dfdfdf;
+  transform: rotate(90deg);
+  background-color: #3b3b3b !important;
+  border: none;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+  padding-bottom: 4px !important;
+}
+
 @media (max-width: 1100px) and (min-width: 951px) {
   .container {
     margin: 0px 70px;

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
   <div class="menu">
     <div class="button-group">
       <button [ngClass]="{'active': isAllSelected, 'side-border-right': isAllSelected}" (click)="isAllSelected = !isAllSelected" class="button">All</button>
@@ -28,19 +28,5 @@
       </div>
     </div>
   </div>
-  <div class="paginator-block">
-    <div class="paginator">
-      <a href="#">&laquo;</a>
-      <a href="#">1</a>
-      <a href="#" class="active">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">6</a>
-      <a href="#">7</a>
-      <a href="#">8</a>
-      <a href="#">9</a>
-      <a href="#">&raquo;</a>
-    </div>
-  </div>
 </div>
+<button [ngClass]="{'hide': !scrollToTopButtonCanShow}" class="go-up-button" (click)="scrollTop()">&#8249;</button>
