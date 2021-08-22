@@ -12,7 +12,7 @@
     </select>
     <label class="select-label">Select your news</label>
   </div>
-  <div class="cards">
+  <div *ngIf="isAllSelected" class="cards">
     <div class="card" *ngFor="let item of data">
       <div class="card-content" (click)="navigateToUrl(item.story_url)">
         <div class="card-head">
@@ -23,8 +23,26 @@
           {{item.story_title}}
         </div>
       </div>
-      <div class="card-fav">
-        <img class="card-icon" src="../../assets/icons/heart-empty.svg" height="22" width="24">
+      <div class="card-fav" (click)="toogleFavorite(item)">
+        <img class="card-icon" [src]="checkFavorite(item.objectID) ? '../../assets/icons/heart-full.svg' : '../../assets/icons/heart-empty.svg'" height="22" width="24">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isAllSelected" class="favorites">
+    <div class="cards">
+      <div class="card" *ngFor="let item of favorites">
+        <div class="card-content" (click)="navigateToUrl(item.story_url)">
+          <div class="card-head">
+            <img class="card-head-icon" src="../../assets/icons/clock.svg" height="16" width="16">
+            {{item.created_at | timeAgo}} by {{item.author}}
+          </div>
+          <div class="card-body">
+            {{item.story_title}}
+          </div>
+        </div>
+        <div class="card-fav" (click)="toogleFavorite(item)">
+          <img class="card-icon" [src]="checkFavorite(item.objectID) ? '../../assets/icons/heart-full.svg' : '../../assets/icons/heart-empty.svg'" height="22" width="24">
+        </div>
       </div>
     </div>
   </div>

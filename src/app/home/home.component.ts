@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
   ];
 
   data: any [];
+  favorites = [];
 
   /**
    * Listener of the scroll position.
@@ -109,6 +110,55 @@ export class HomeComponent implements OnInit {
    */
   navigateToUrl(url: string) {
     window.open(url);
+  }
+
+  /**
+   * Method executed when clicked in favorites section of card to see if it have to ve add or removed of favorites array.
+   * @param item object of news clicked.
+   */
+  toogleFavorite(item) {
+    if (this.checkFavorite(item.objectID)) {
+      this.removeFavorite(item);
+    } else {
+      this.addFavorite(item.objectID);
+    }
+  }
+
+  /**
+   * Add item to favorites array.
+   * @param item item to add.
+   */
+  addFavorite(item) {
+    const favItem = {
+      objectID: item.objectID,
+      story_url: item.story_url,
+      created_at: item.created_at,
+      author: item.author,
+      story_title: item.story_title
+    };
+
+    this.favorites.push(favItem);
+  }
+
+  /**
+   * Remove item of favorites array.
+   * @param id objectID to remove.
+   */
+  removeFavorite(id) {
+    const index = this.favorites.map((i: any) => {
+      return i.objectID
+    }).indexOf(id);
+
+    this.favorites.splice(index, 1);
+  }
+
+  /**
+   * Check if item is part of the favorites array.
+   * @param id objectID of item that we are checking.
+   * @returns boolean of if it is find it.
+   */
+  checkFavorite(id) {
+    return this.favorites.filter(e => e.objectID === id).length > 0;
   }
 
   /**
