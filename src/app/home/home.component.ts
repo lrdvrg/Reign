@@ -62,12 +62,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    /** Check if there is a selection alredy picked and storaged in local storage */
-    if (localStorage.getItem('selection')) {
-      const lsSelection = localStorage.getItem('selection');
-      this.getData(lsSelection, 1);
-      this.selection = lsSelection;
-    }
+    this.getSelectionFromLocalStorage();
+    this.getFavoritesFromLocalStorage();
   }
 
   /**
@@ -87,7 +83,6 @@ export class HomeComponent implements OnInit {
   getData(selection: string, page: number) {
     this.homeService.getNews(selection, page)
     .subscribe(res => {
-      console.log('response:', res);
       if (res && res.hits) {
         if (this.actualPage === 1) {
           this.data = res.hits;
@@ -95,10 +90,8 @@ export class HomeComponent implements OnInit {
         } else {
           const tempData = res.hits.filter(item => (item.story_title && item.author && item.story_url && item.created_at));
           if (tempData.length > 0) {
-            console.log('tempData', tempData);
             this.data.push.apply(this.data, tempData);
           }
-          console.log('data', this.data);
         }
       }
     });
@@ -118,10 +111,12 @@ export class HomeComponent implements OnInit {
    */
   toogleFavorite(item) {
     if (this.checkFavorite(item.objectID)) {
-      this.removeFavorite(item);
+      this.removeFavorite(item.objectID);
     } else {
-      this.addFavorite(item.objectID);
+      this.addFavorite(item);
     }
+
+    localStorage.setItem('favorites', JSON.stringify(this.favorites));
   }
 
   /**
@@ -159,6 +154,27 @@ export class HomeComponent implements OnInit {
    */
   checkFavorite(id) {
     return this.favorites.filter(e => e.objectID === id).length > 0;
+  }
+
+  /**
+   * Check if there is a selection already selected and stored in local storage and return it if it is.
+   */
+  getSelectionFromLocalStorage() {
+    if (localStorage.getItem('selection')) {
+      const lsSelection = localStorage.getItem('selection');
+      this.getData(lsSelection, 1);
+      this.selection = lsSelection;
+    }
+  }
+
+  /**
+   * Check if there is a favorites stored in local storage and return it if it is.
+   */
+  getFavoritesFromLocalStorage() {
+    if (localStorage.getItem('favorites')) {
+      const favorites = JSON.parse(localStorage.getItem('favorites'));
+      this.favorites = favorites;
+    }
   }
 
   /**
