@@ -164,6 +164,7 @@ export class HomeComponent implements OnInit {
     if (localStorage.getItem('selection')) {
       const lsSelection = localStorage.getItem('selection');
       this.getData(lsSelection, 1);
+      this.getData(lsSelection, 2);
       this.selection = lsSelection;
     }
   }
@@ -182,7 +183,7 @@ export class HomeComponent implements OnInit {
    * Executed everytime user scroll down.
    */
   onScroll() {
-    if (this.actualPage < this.finishPage) {
+    if ((this.actualPage < this.finishPage) && this.isAllSelected) {
       this.actualPage++;
       this.getData(this.selection, this.actualPage);
     }
