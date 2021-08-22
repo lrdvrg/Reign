@@ -1,4 +1,4 @@
-<div class="container" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
+<div class="container" infiniteScroll [infiniteScrollDistance]="2" [alwaysCallback]="true" (scrolled)="onScroll()">
   <div class="menu">
     <div class="button-group">
       <button [ngClass]="{'active': isAllSelected, 'side-border-right': isAllSelected}" (click)="isAllSelected = !isAllSelected" class="button">All</button>

@@ -90,6 +90,7 @@ export class HomeComponent implements OnInit {
         } else {
           const tempData = res.hits.filter(item => (item.story_title && item.author && item.story_url && item.created_at));
           if (tempData.length > 0) {
+            console.warn('encuentra data');
             this.data.push.apply(this.data, tempData);
           }
         }
@@ -182,11 +183,8 @@ export class HomeComponent implements OnInit {
    */
   onScroll() {
     if (this.actualPage < this.finishPage) {
-      this.actualPage ++;
-      console.log(this.actualPage, this.finishPage)
+      this.actualPage++;
       this.getData(this.selection, this.actualPage);
-    } else {
-      console.log('No more lines. Finish page!');
     }
   }
 

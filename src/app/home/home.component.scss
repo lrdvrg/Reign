@@ -1,5 +1,5 @@
 .container {
-  margin: 0px 150px;
+  margin: 0px 150px 20px;
 }
 
 .menu {
@@ -226,7 +226,7 @@
 
 @media (max-width: 1100px) and (min-width: 951px) {
   .container {
-    margin: 0px 70px;
+    margin: 0px 70px 20px;
   }
 
   .menu {
@@ -236,7 +236,7 @@
 
 @media (max-width: 950px) and (min-width: 801px) {
   .container {
-    margin: 0px 30px;
+    margin: 0px 30px 20px;
   }
 
   .menu {
@@ -246,7 +246,7 @@
 
 @media (max-width: 800px) {
   .container {
-    margin: 0px 10px;
+    margin: 0px 10px 20px;
   }
 
   .cards {
