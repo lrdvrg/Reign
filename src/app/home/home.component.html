@@ -1,5 +1,5 @@
 <div class="container" infiniteScroll [infiniteScrollDistance]="2" [alwaysCallback]="true" (scrolled)="onScroll()">
-  <div class="menu">
+  <div #top class="menu">
     <div class="button-group">
       <button [ngClass]="{'active': isAllSelected, 'side-border-right': isAllSelected}" (click)="isAllSelected = !isAllSelected" class="button">All</button>
       <button [ngClass]="{'active': !isAllSelected, 'side-border-left': !isAllSelected}" (click)="isAllSelected = !isAllSelected" class="button">My faves</button>
@@ -47,4 +47,4 @@
     </div>
   </div>
 </div>
-<button [ngClass]="{'hide': !scrollToTopButtonCanShow}" class="go-up-button" (click)="scrollTop()">&#8249;</button>
+<button [ngClass]="{'hide': !scrollToTopButtonCanShow}" class="go-up-button" (click)="scrollTop(top)">&#8249;</button>
