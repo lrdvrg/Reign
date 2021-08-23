@@ -193,7 +193,6 @@ export class HomeComponent implements OnInit {
    * NavigateToTop
    */
   scrollTop($top) {
-    console.log($top);
     $top.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'})
   }
 }

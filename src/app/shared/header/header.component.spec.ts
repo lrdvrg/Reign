@@ -22,7 +22,12 @@ describe('HeaderComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create.', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Header title is HACKER NEWS.', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.hacker-news').textContent).toContain('HACKER NEWS');
   });
 });
