@@ -7,7 +7,7 @@ You must run `npm install` to install the necessary npm modules to run the proje
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
->Note: The port can be changed using the --port option, for example: ng serve --port = 4400.
+>Note: the port used to run the server can be changed using the --port option, for example: ng serve --port = 4400.
 ## Build
 
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/reign-test` directory. 
