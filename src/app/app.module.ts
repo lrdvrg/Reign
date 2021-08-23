@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TimeAgoPipe } from './home/pipes/time-ago.pipe';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { SelectionPipe} from './home/pipes/selection.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
       HomeComponent,
-      TimeAgoPipe
+      TimeAgoPipe,
+      SelectionPipe
    ],
   imports: [
     BrowserModule,

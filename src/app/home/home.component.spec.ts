@@ -7,6 +7,7 @@ import { HomeComponent } from './home.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule } from '@angular/forms';
+import { SelectionPipe } from './pipes/selection.pipe';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -15,7 +16,7 @@ describe('HomeComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, InfiniteScrollModule, FormsModule],
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent, SelectionPipe ]
     })
     .compileComponents();
   }));

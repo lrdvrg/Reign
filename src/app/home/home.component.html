@@ -6,11 +6,20 @@
     </div>
   </div>
   <div [ngClass]="{'hide': !isAllSelected}" class="select">
-    <select class="select-text" [(ngModel)]="selection" (change)="selectionChange(selection)" required>
-      <option style="height: 50px;" value="" disabled selected></option>
-      <option *ngFor="let options of selectionOptions" [value]="options.value">{{options.viewValue}}</option>
-    </select>
-    <label class="select-label">Select your news</label>
+    <div class="dropdown">
+      <button class="dropbtn">
+        {{(selection | selectionPipe) || 'Select your news'}}
+      </button>
+
+      <div class="dropdown-content">
+        <div (click)="selectionChange('angular')">
+          <img src="../../assets/icons/angular.png" class="angular-img" width="20" height="22">Angular</div>
+        <div (click)="selectionChange('reactjs')">
+          <img src="../../assets/icons/react.png" class="react-img" width="24" height="20">React</div>
+        <div (click)="selectionChange('vuejs')">
+          <img src="../../assets/icons/vuejs.png" class="vuejs-img" width="22" height="19"> Vuejs</div>
+      </div>
+    </div>
   </div>
   <div *ngIf="isAllSelected" class="cards">
     <div class="card" *ngFor="let item of data">

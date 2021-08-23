@@ -71,6 +71,7 @@ export class HomeComponent implements OnInit {
    * @param selection Option picked.
    */
   selectionChange(selection: string) {
+    this.selection = selection;
     localStorage.setItem('selection', selection);
     this.getData(selection, 1);
     this.actualPage = 1;
@@ -90,7 +91,6 @@ export class HomeComponent implements OnInit {
         } else {
           const tempData = res.hits.filter(item => (item.story_title && item.author && item.story_url && item.created_at));
           if (tempData.length > 0) {
-            console.warn('encuentra data');
             this.data.push.apply(this.data, tempData);
           }
         }
